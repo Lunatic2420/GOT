@@ -1,0 +1,1 @@
+export const CLIENT_URL = 'https://anapioficeandfire.com/api/characters/?page1&pageSize=50';

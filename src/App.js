@@ -1,26 +1,62 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import axios from 'axios'
+import Characters from './components/Characters'
+import {CLIENT_URL} from './constants'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      characters: [],
+      page: 1
+    }
+this.fetchCharacters=this.fetchCharacters.bind(this)
+// this.previousPage=this.previousPage.bind(this)
+  }
+  
+  async fetchCharacters() {
+    const response = await axios(CLIENT_URL)
+    console.log(response.data)
+    this.setState({
+        characters: response.data
+    })
+}
+componentDidMount() {
+  this.fetchCharacters();
+}
+async previousPage(){
+  const page = this.state.page -1;
+  let url= 'https://anapioficeandfire.com/api/characters/'
+  const GOTcharacter = await axios(`${url}page=${page}&pageSize=50`)
+  console.log(GOTcharacter)
+  this.setState({
+    page, characters: GOTcharacter.data
+  })
+}
+  render(){
+    return (
+        <div className="App">
+          <div>
+            <h1 className='title'>Welcome To Westeros</h1>
+          </div>
+          {/* <div className="buttons">
+            <buttons></buttons>
+            <buttons></buttons>
+          </div> */}
+        <div className="box-title">
+           <h2>Name</h2>
+           <h2>Gender</h2>
+           <h2>Book</h2>
+        </div>
+        <ol>
+        {this.state.characters.map(character => (<Characters character={character} key={character.url} />
+        ))}
+          </ol>
+        </div>  
+    
   );
+  }
 }
 
 export default App;
