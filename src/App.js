@@ -47,7 +47,7 @@ async previousPage(){
         <div className="box-title">
            <h2>Name</h2>
            <h2>Gender</h2>
-           <h2>Book</h2>
+           <h2>Culture</h2>
         </div>
         <ol>
         {this.state.characters.map(character => (<Characters character={character} key={character.url} />

@@ -5,7 +5,7 @@ import React, { Component } from 'react'
 
 class Characters extends Component {
     render() {
-            if(this.props.character.name === " "){
+            if(this.props.character.name === ""){
                 this.props.character.name = this.props.character.aliases[0];
             }
             return(  

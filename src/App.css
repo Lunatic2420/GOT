@@ -9,6 +9,14 @@
 }
 .title{
   font-family: 'Tangerine', cursive;
+  background-image: linear-gradient(red,yellow); 
+}
+.box-title{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  background-color: skyblue;
+  color: #ee5a35;
 }
 .App-header {
   background-color: #282c34;
@@ -20,7 +28,22 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+main {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+h3{
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+  align-items: space-around;
+}
+ol {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
 .App-link {
   color: #61dafb;
 }
