@@ -17,6 +17,7 @@
   justify-content: space-around;
   background-color: skyblue;
   color: #ee5a35;
+  border: 1px solid black;
 }
 .App-header {
   background-color: #282c34;
@@ -38,14 +39,35 @@ h3{
   display: inline-block;
   width: 100%;
   align-items: space-around;
+  font-family: 'Special Elite', cursive;
 }
 ol {
   padding: 0;
   margin: 0;
   text-align: center;
+  background-image: linear-gradient(to right, orange, skyblue)
 }
+
 .App-link {
   color: #61dafb;
+}
+button{
+  padding: 10px;
+  margin: 3px 8px;
+  color: purple;
+  font-size: 14px;
+  font-weight: bold;
+   border-radius: 10px;
+}
+.button{
+  width: 25%;
+  margin: 0 auto;
+  border: 2px solid rgba(33,68,72)
+}
+a.button:hover{
+  background: #3d7a80;
+  background: -webkit-linear-gradient(top, #3d7a80, #2f5f63);
+
 }
 
 @keyframes App-logo-spin {

@@ -12,7 +12,8 @@ class App extends Component {
       page: 1
     }
 this.fetchCharacters=this.fetchCharacters.bind(this)
-// this.previousPage=this.previousPage.bind(this)
+this.previousPage=this.previousPage.bind(this)
+this.nextPage=this.nextPage.bind(this)
   }
   
   async fetchCharacters() {
@@ -26,8 +27,17 @@ componentDidMount() {
   this.fetchCharacters();
 }
 async previousPage(){
-  const page = this.state.page -1;
-  let url= 'https://anapioficeandfire.com/api/characters/'
+  const page = this.state.page - 1;
+  let url= "https://www.anapioficeandfire.com/api/characters?"
+  const GOTcharacter = await axios(`${url}page=${page}&pageSize=50`)
+  console.log(GOTcharacter)
+  this.setState({
+    page, characters: GOTcharacter.data
+  })
+}
+async nextPage(){
+  const page = this.state.page + 1;
+  let url ="https://www.anapioficeandfire.com/api/characters?"
   const GOTcharacter = await axios(`${url}page=${page}&pageSize=50`)
   console.log(GOTcharacter)
   this.setState({
@@ -40,10 +50,10 @@ async previousPage(){
           <div>
             <h1 className='title'>Welcome To Westeros</h1>
           </div>
-          {/* <div className="buttons">
-            <buttons></buttons>
-            <buttons></buttons>
-          </div> */}
+             <div className="buttons">
+            <button onClick={this.previousPage}>Previous </button>
+            <button onClick={this.nextPage}>Next</button>
+          </div>
         <div className="box-title">
            <h2>Name</h2>
            <h2>Gender</h2>

@@ -9,12 +9,13 @@ class Characters extends Component {
                 this.props.character.name = this.props.character.aliases[0];
             }
             return(  
-        <main>
+       
+            <main>
                 <h3>{this.props.character.name}</h3>
                 <h3>{this.props.character.gender}</h3>
                 <h3>{this.props.character.culture}</h3> 
-        </main>
-            
+            </main>
+        
         )
     }
 }
